@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Gestión de Productos</title>
+    <link th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/webjars/bootstrap-icons/1.10.5/font/bootstrap-icons.css}" rel="stylesheet" />
+    <style>
+        body {
+            background: linear-gradient(135deg, #f3e5f5, #e8eaf6);
+            min-height: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gestion-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        h2 {
+            color: #4a148c;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .btn-custom {
+            width: 100%;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+        }
+
+        .btn-marcas {
+            background: #5c6bc0;
+            color: white;
+        }
+
+        .btn-categorias {
+            background: #26a69a;
+            color: white;
+        }
+
+        .btn-productos {
+            background: #ef5350;
+            color: white;
+        }
+
+        .btn-marcas:hover {
+            background: #3949ab;
+        }
+
+        .btn-categorias:hover {
+            background: #00796b;
+        }
+
+        .btn-productos:hover {
+            background: #c62828;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gestion-card">
+        <h2>Gestión de Productos</h2>
+
+        <a th:href="@{/marcas}" class="btn btn-custom btn-marcas">
+            <i class="bi bi-tags"></i> Ver Marcas
+        </a>
+
+        <a th:href="@{/categorias}" class="btn btn-custom btn-categorias">
+            <i class="bi bi-tags"></i> Ver Categorías
+        </a>
+
+        <a th:href="@{/productos}" class="btn btn-custom btn-productos">
+            <i class="bi bi-box-seam"></i> Ver Productos
+        </a>
+    </div>
+
+    <script th:src="@{/webjars/bootstrap/5.3.2/js/bootstrap.bundle.min.js}"></script>
+</body>
+
+</html>

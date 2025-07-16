@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-RzlApplication<rzl>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "comercial_areloz.rzl.RzlApplication",
+            "projectName": "rzl",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Listado de Categorías</title>
+    <link th:href="@{/webjars/bootstrap-icons/1.10.5/font/bootstrap-icons.css}" rel="stylesheet" />
+    <link th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}" rel="stylesheet" />
+    <style>
+        body {
+            background: linear-gradient(to right, #e3f2fd, #ede7f6);
+            font-family: 'Segoe UI', sans-serif;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .table-container {
+            margin: 40px auto;
+            max-width: 900px;
+            background: #fff;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #4a148c;
+            font-weight: 700;
+        }
+
+        .btn-custom {
+            background-color: #5c6bc0;
+            border: none;
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .btn-custom:hover {
+            background-color: #3f51b5;
+        }
+
+        .btn-outline-secondary {
+            border: 1px solid #7e57c2;
+            color: #7e57c2;
+        }
+
+        .btn-outline-secondary:hover {
+            background-color: #7e57c2;
+            color: #fff;
+        }
+
+        .table th {
+            background-color: #d1c4e9;
+            color: #4a148c;
+        }
+
+        .table td {
+            vertical-align: middle;
+        }
+
+        .btn-edit {
+            background-color: #0b81cf;
+            border: none;
+            color: #fff;
+            width: 34px;
+            height: 34px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+        }
+
+        .btn-edit:hover {
+            background-color: #0f9fff;
+        }
+
+        .btn-delete {
+            background-color: #e57373;
+            border: none;
+            color: #fff;
+            width: 34px;
+            height: 34px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+        }
+
+        .btn-delete:hover {
+            background-color: #ef5350;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: flex-start;
+            padding: 1rem 2rem;
+            background: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container table-container">
+        <h2 class="text-center mb-4"><i class="bi bi-tags-fill"></i> Listado de Categorías</h2>
+
+        <div class="text-end mb-3">
+            <a th:href="@{/categorias/nueva}" class="btn btn-custom">
+                <i class="bi bi-plus-circle"></i> Nueva Categoría
+            </a>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="cat : ${categorias}">
+                        <td th:text="${cat.id}">1</td>
+                        <td th:text="${cat.nombre}">Electrónica</td>
+                        <td>
+                            <a th:href="@{/categorias/editar/{id}(id=${cat.id})}" class="btn-edit me-1" title="Editar">
+                                <i class="bi bi-pencil-fill"></i>
+                            </a>
+                            <a th:href="@{/categorias/eliminar/{id}(id=${cat.id})}" class="btn-delete" title="Eliminar"
+                                onclick="return confirm('¿Eliminar esta categoría?')">
+                                <i class="bi bi-trash-fill"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="footer container">
+        <a th:href="@{/productos/gestion}" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left"></i> Volver
+        </a>
+    </div>
+
+    <script th:src="@{/webjars/bootstrap/5.3.2/js/bootstrap.bundle.min.js}"></script>
+</body>
+
+</html>

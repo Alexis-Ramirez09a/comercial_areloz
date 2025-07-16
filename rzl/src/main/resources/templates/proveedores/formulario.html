@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <title th:text="${proveedor.id} == null ? 'Nuevo Proveedor' : 'Editar Proveedor'">Proveedor</title>
+
+  <link th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}" rel="stylesheet" />
+  <link th:href="@{/webjars/bootstrap-icons/1.10.5/font/bootstrap-icons.css}" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(135deg, #f3e5f5, #e8eaf6);
+      min-height: 100vh;
+      font-family: 'Segoe UI';
+      padding: 2rem;
+    }
+
+    .form-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      color: #4a148c;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      border: 1px solid #7e57c2;
+      color: #7e57c2;
+      border-radius: 8px;
+      padding: .5rem 1rem;
+      text-decoration: none;
+    }
+
+    .btn-back:hover {
+      background: #7e57c2;
+      color: #fff;
+    }
+
+    .btn-primary {
+      background: #5c6bc0;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: #3949ab;
+    }
+
+    .btn-secondary {
+      background: #9e9e9e;
+      border: none;
+    }
+
+    .btn-secondary:hover {
+      background: #757575;
+    }
+
+    .text-danger {
+      font-size: .9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <a th:href="@{/proveedores}" class="btn-back">
+    <i class="bi bi-arrow-left"></i> Volver a proveedores
+  </a>
+
+  <div class="form-card">
+    <div class="page-header">
+      <h2 th:text="${proveedor.id} == null ? 'Nuevo Proveedor' : 'Editar Proveedor'"></h2>
+    </div>
+
+    <form th:action="@{/proveedores/save}" th:object="${proveedor}" method="post" novalidate>
+      <input type="hidden" th:field="*{id}" />
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label class="form-label">Cédula *</label>
+          <input type="text" th:field="*{cedula}" class="form-control" required />
+          <div class="text-danger" th:if="${#fields.hasErrors('cedula')}" th:errors="*{cedula}"></div>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Nombre *</label>
+          <input type="text" th:field="*{nombre}" class="form-control" required />
+          <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label class="form-label">Dirección</label>
+          <input type="text" th:field="*{direccion}" class="form-control" />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Teléfono</label>
+          <input type="text" th:field="*{telefono}" class="form-control" />
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label class="form-label">Email</label>
+          <input type="email" th:field="*{email}" class="form-control" />
+          <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Tipo Proveedor</label>
+          <input type="text" th:field="*{tipo_proveedor}" class="form-control" />
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label class="form-label">Representante Ventas</label>
+          <input type="text" th:field="*{representante_ventas}" class="form-control" />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Celular Representante</label>
+          <input type="text" th:field="*{celular_representante}" class="form-control" />
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label class="form-label">Método Pago</label>
+          <input type="text" th:field="*{metodo_pago}" class="form-control" />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Condición Pago</label>
+          <input type="text" th:field="*{condicion_pago}" class="form-control" />
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label class="form-label">Número de Cuenta</label>
+          <input type="text" th:field="*{num_cuenta}" class="form-control" />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Banco Asociado</label>
+          <input type="text" th:field="*{banco_asociado}" class="form-control" />
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label class="form-label">Categoría Producto</label>
+          <input type="text" th:field="*{categoria_producto}" class="form-control" />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Plazo Entrega</label>
+          <input type="text" th:field="*{plazo_entrega}" class="form-control" />
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <a th:href="@{/}" class="btn btn-secondary">
+          <i class="bi bi-x-circle"></i> Cancelar
+        </a>
+        <button type="submit" class="btn btn-primary">
+          <i class="bi bi-save-fill"></i>
+          <span th:text="${proveedor.id} == null ? 'Crear' : 'Actualizar'"></span>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <script th:src="@{/webjars/bootstrap/5.3.2/js/bootstrap.bundle.min.js}"></script>
+</body>
+
+</html>
