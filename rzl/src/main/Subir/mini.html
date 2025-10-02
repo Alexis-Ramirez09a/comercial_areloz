@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Juego: Adivina el número</title>
+</head>
+<body>
+  <h2>🎮 Adivina el número secreto (1 - 10)</h2>
+  <input type="number" id="numero" placeholder="Ingresa un número" min="1" max="10">
+  <button onclick="adivinar()">Intentar</button>
+  <p id="resultado"></p>
+
+  <script>
+    // Genera un número aleatorio entre 1 y 10
+    const secreto = Math.floor(Math.random() * 10) + 1;
+
+    function adivinar() {
+      let num = parseInt(document.getElementById("numero").value);
+      let resultado = "";
+
+      if (isNaN(num)) {
+        resultado = "⚠️ Ingresa un número válido.";
+      } else if (num < 1 || num > 10) {
+        resultado = "⚠️ El número debe estar entre 1 y 10.";
+      } else if (num === secreto) {
+        resultado = `🎉 ¡Correcto! El número secreto era ${secreto}.`;
+      } else if (num < secreto) {
+        resultado = "⬆️ Intenta con un número más grande.";
+      } else {
+        resultado = "⬇️ Intenta con un número más pequeño.";
+      }
+
+      document.getElementById("resultado").textContent = resultado;
+    }
+  </script>
+</body>
+</html>
