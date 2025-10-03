@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Programa JS</title>
+</head>
+<body>
+    <h2>Verificar si un número es par o impar</h2>
+    <input type="number" id="numero" placeholder="Ingresa un número">
+    <button onclick="verificar()">Verificar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function verificar() {
+            let num = document.getElementById("numero").value;
+            let resultado = "";
+
+            if (num === "") {
+                resultado = "Por favor, ingresa un número.";
+            } else if (num % 2 === 0) {
+                resultado = `El número ${num} es PAR.`;
+            } else {
+                resultado = `El número ${num} es IMPAR.`;
+            }
+
+            document.getElementById("resultado").textContent = resultado;
+        }
+    </script>
+</body>
+</html>

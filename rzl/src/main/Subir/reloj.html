@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reloj en Vivo</title>
+</head>
+<body>
+  <h2>🕒 Reloj en Vivo</h2>
+  <p id="reloj"></p>
+
+  <script>
+    function actualizarReloj() {
+      let ahora = new Date();
+      let horas = ahora.getHours().toString().padStart(2, '0');
+      let minutos = ahora.getMinutes().toString().padStart(2, '0');
+      let segundos = ahora.getSeconds().toString().padStart(2, '0');
+      document.getElementById("reloj").textContent = `${horas}:${minutos}:${segundos}`;
+    }
+    setInterval(actualizarReloj, 1000);
+    actualizarReloj();
+  </script>
+</body>
+</html>
