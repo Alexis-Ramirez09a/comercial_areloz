@@ -9,7 +9,6 @@ function Saludo(invitado) {
 }
 
 function calculo (operacion, num1, num2) {
-    // Asegurar que num1/num2 sean números
     var a = Number(num1);
     var b = Number(num2);
     if (isNaN(a) || isNaN(b)) {
@@ -28,22 +27,18 @@ function calculo (operacion, num1, num2) {
     }
 }
 
-// Exportar funciones para uso desde otros módulos
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { Hello: Hello, Saludo: Saludo, calculo: calculo };
 }
 
-// Si se ejecuta directamente desde Node, aceptar comandos CLI simples
 if (typeof require !== 'undefined' && require.main === module) {
     var args = process.argv.slice(2);
-    // Uso: node alexis_ramirez.js hello
-    //       node alexis_ramirez.js saludo <nombre>
-    //       node alexis_ramirez.js calculo <suma|resta> <num1> <num2>
+
     if (args.length === 0) {
-        // Demostración por defecto
         Hello();
         Saludo('Usuario');
         calculo('suma', 4, 3);
+        Despedir('Usuario');
     } else {
         var cmd = args[0];
         if (cmd === 'hello' || cmd === 'hola') {
@@ -60,4 +55,8 @@ if (typeof require !== 'undefined' && require.main === module) {
             console.log('  node alexis_ramirez.js calculo suma 5 2');
         }
     }
+}
+function Despedir(invitado) {
+    var mensaje="Adiós, hasta luego " + invitado;
+    console.log(mensaje);
 }
