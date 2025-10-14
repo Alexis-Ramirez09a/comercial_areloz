@@ -1,3 +1,3 @@
 # Bienvenido al repositorio de Alexis Ramirez
 
-Gracias por visitar este repositorio. Bienvenido/a.
+PVP MANCO 7 - 0
