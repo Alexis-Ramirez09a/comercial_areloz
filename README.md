@@ -1,3 +1,3 @@
 # Bienvenido al repositorio de Alexis Ramirez
 
-PVP MANCO 7 - 6
+PVP MANCO 7 - 0
