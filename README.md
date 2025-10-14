@@ -1,3 +1,2 @@
-# Bienvenido al repositorio de Alexis Ramirez
-
-PVP MANCO 7 - 0
+PROYECTO 4 CICLO "B"
+Comercial desde cero
