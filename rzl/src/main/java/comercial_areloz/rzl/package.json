@@ -1,0 +1,11 @@
+{
+  "name": "alexis-helpers",
+  "version": "1.0.0",
+  "description": "Scripts de prueba para alexis_ramirez.js",
+  "scripts": {
+    "start": "node alexis_ramirez.js",
+    "cli": "node alexis_ramirez.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
